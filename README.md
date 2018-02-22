@@ -60,4 +60,18 @@ PYG = Paisley Gilmour Street
 ./main.rb --help
 ```
 
+## Run from anywhere
 
+Easiest way to run this script from any directory is to create an alias. Add an alias to your `.bashrc` or `.zshrc`
+
+```
+alias tt="ruby ~/Projects/misc/train-times/main.rb"
+```
+
+Then restart your terminal. You should then be able to do:
+
+```
+tt GLC PYG
+```
+
+Cool, huh?
