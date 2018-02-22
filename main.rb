@@ -9,16 +9,16 @@ Dotenv.load
 require_all 'lib'
 
 Clamp do
-  parameter 'ORIGIN', 'Origin Station', attribute_name: :origin
-  parameter 'DESTINATION/FROM', 'Destination station (Departures) or From Station (Arrivals)', attribute_name: :secondary
+  parameter 'ORIGIN/ARRIVAL', 'Departures: Starting station / Arrivals: Station arriving at', attribute_name: :primary_crs
+  parameter 'DESTINATION/FROM', 'Departures: Destination station / Arrivals: Station train arriving from', attribute_name: :secondary_crs
 
   option ['-m', '--mode'], 'Mode', 'departures/arrivals', default: 'departures' do |answer|
     answer == 'arrivals' ? 'arrivals' : 'departures'
   end
 
   def execute
-    @origin_station = Station.new(origin)
-    puts @origin_station.departures(to: secondary) unless mode == 'arrivals'
-    puts @origin_station.arrivals(from: secondary) if mode == 'arrivals'
+    @primary_station = Station.new(primary_crs)
+    puts @primary_station.departures(to: secondary_crs) unless mode == 'arrivals'
+    puts @primary_station.arrivals(from: secondary_crs) if mode == 'arrivals'
   end
 end
