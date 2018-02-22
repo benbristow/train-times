@@ -62,10 +62,10 @@ PYG = Paisley Gilmour Street
 
 ## Run from anywhere
 
-Easiest way to run this script from any directory is to create an alias. Add an alias to your `.bashrc` or `.zshrc`
+Easiest way to run this script from any directory is to create an alias. Add an alias to your `.bashrc` or `.zshrc` like:
 
 ```
-alias tt="ruby ~/Projects/misc/train-times/main.rb"
+alias tt="ruby ~/scripts/train-times/main.rb"
 ```
 
 Then restart your terminal. You should then be able to do:
