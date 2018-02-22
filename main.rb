@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+Dir.chdir(__dir__)
+
 require 'rubygems'
 require 'bundler'
 Bundler.require(:default)
@@ -18,7 +20,7 @@ Clamp do
 
   def execute
     @primary_station = Station.new(primary_crs)
-    puts @primary_station.departures(to: secondary_crs) unless mode == 'arrivals'
-    puts @primary_station.arrivals(from: secondary_crs) if mode == 'arrivals'
+    puts @primary_station.departures(to: secondary_crs.upcase) unless mode == 'arrivals'
+    puts @primary_station.arrivals(from: secondary_crs.upcase) if mode == 'arrivals'
   end
 end
