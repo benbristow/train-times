@@ -7,5 +7,3 @@ gem 'dotenv'
 gem 'savon'
 gem 'httpclient'
 gem 'require_all'
-
-gem 'pry'
