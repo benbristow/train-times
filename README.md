@@ -37,22 +37,22 @@ PYG = Paisley Gilmour Street
 ### Departures
 
 ```
-./main.rb ORIGIN DESTINATION 
+./main.rb ORIGIN [DESTINATION]
 ```
 
 * Origin: Where the train is departing from
 
-* Destination: Where the train is going - this can be anywhere the train stops down the line
+* Destination (optional - leave blank for anywhere): Where the train is going - this can be anywhere the train stops down the line
 
 ### Arrivals
 
 ```
-./main.rb --mode='arrivals' ARRIVING FROM
+./main.rb --mode='arrivals' ARRIVING [FROM]
 ```
 
 * Arriving: Where the train is arriving at
 
-* From: Where the train is coming from before it arrives - this can also be anywhere the train stops down the line
+* From (optional - leave blank for all): Where the train is coming from before it arrives - this can also be anywhere the train stops down the line
 
 ### Help
 

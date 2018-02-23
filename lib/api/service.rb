@@ -28,8 +28,10 @@ class Service
   end
 
   def to_s
-    opening = @mode == 'arrival' ? 'Scheduled arrival at' : 'Scheduled departure at'
+    opening = @mode == 'arrival' ? "arrival at" : 'departure from'
     status_display = on_time? ? '' : " (Changed: #{status})"
-    "#{opening} #{time}#{status_display} - #{operator} service from #{origin} to #{destination}"
+    platform_display = platform.blank? ? 'unspecified platform' : "platform #{platform}"
+
+    "Scheduled #{opening} #{platform_display} at #{time}#{status_display} - #{operator} service from #{origin} to #{destination}"
   end
 end
