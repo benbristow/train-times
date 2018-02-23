@@ -19,7 +19,7 @@ class LDBWS
   private
 
   def extract_services(board_response)
-    throw 'No train times found' if board_response[:get_station_board_result][:train_services].nil?
+    raise TrainTimesError.new('No train times found') if board_response[:get_station_board_result][:train_services].nil?
     services = board_response[:get_station_board_result][:train_services][:service]
     services.map { |service| Service.new(service) }
   rescue TypeError # quick hack - when only one service object seems to return differently
@@ -54,7 +54,7 @@ class LDBWS
   end
 
   def access_token
-    throw 'No access token provided' unless ENV['NATIONAL_RAIL_TOKEN']
+    raise TrainTimesError.new('No national rail access token provided') unless ENV['NATIONAL_RAIL_TOKEN']
     ENV['NATIONAL_RAIL_TOKEN']
   end
 end
