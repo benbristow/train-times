@@ -4,4 +4,4 @@ rvm:
   - 2.5.0
 
 script:
-  - rspec
+  - bundle exec rspec
