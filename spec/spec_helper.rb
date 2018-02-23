@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+ENV['NATIONAL_RAIL_TOKEN'] = 'test'
+
 require 'rubygems'
 require 'bundler'
 Bundler.require(:default, :test)
