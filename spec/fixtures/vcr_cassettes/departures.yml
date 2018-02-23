@@ -1,0 +1,393 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://lite.realtime.nationalrail.co.uk/OpenLDBWS/rtti_2017-10-01_ldb.wsdl
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.5.0 (2017-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 23 Feb 2018 14:21:44 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml
+      Last-Modified:
+      - Tue, 31 Oct 2017 14:50:44 GMT
+      Accept-Ranges:
+      - bytes
+      Etag:
+      - '"03af6a05752d31:0"'
+      Server:
+      - Microsoft-IIS/7.5
+      X-Powered-By:
+      - ASP.NET
+      X-Server:
+      - liteweb201
+      Date:
+      - Fri, 23 Feb 2018 14:21:44 GMT
+      Content-Length:
+      - '25587'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\"
+        xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\"
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:tok=\"http://thalesgroup.com/RTTI/2013-11-28/Token/types\"
+        xmlns:tns=\"http://thalesgroup.com/RTTI/2017-10-01/ldb/\" targetNamespace=\"http://thalesgroup.com/RTTI/2017-10-01/ldb/\">\r\n\t<wsdl:import
+        namespace=\"http://thalesgroup.com/RTTI/2013-11-28/Token/types\" location=\"darwin_token_types_2013-11-28.wsdl\"/>\r\n\t<wsdl:types>\r\n\t\t<xs:schema
+        elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\" targetNamespace=\"http://thalesgroup.com/RTTI/2017-10-01/ldb/\"
+        xmlns:ct2007=\"http://thalesgroup.com/RTTI/2007-10-10/ldb/commontypes\" xmlns:ct2015=\"http://thalesgroup.com/RTTI/2015-11-27/ldb/commontypes\"
+        xmlns:ldbt20171001=\"http://thalesgroup.com/RTTI/2017-10-01/ldb/types\">\r\n\t\t\t<xs:import
+        namespace=\"http://thalesgroup.com/RTTI/2007-10-10/ldb/commontypes\" schemaLocation=\"rtti_2007-10-10_ldb_common_types.xsd\"/>\r\n\t\t\t<xs:import
+        namespace=\"http://thalesgroup.com/RTTI/2015-11-27/ldb/commontypes\" schemaLocation=\"rtti_2015-11-27_ldb_common_types.xsd\"/>\r\n\t\t\t<xs:import
+        namespace=\"http://thalesgroup.com/RTTI/2017-10-01/ldb/types\" schemaLocation=\"rtti_2017-10-01_ldb_types.xsd\"/>\r\n\t\t\t<!--
+        ============================================================================\r\n\t\t\t\tREQUEST
+        PARAMETER DEFINITIONS \r\n\t\t\t==============================================================================-->\r\n\t\t\t<xs:complexType
+        name=\"GetBoardRequestParams\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"numRows\" type=\"xs:unsignedShort\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>The
+        maximum number of services that are required to be returned. This will be
+        limited to a maximum value by the server, which may change according to system
+        load or other factors. Only the minimum required number of services should
+        be requested. For example, if only 10 services are displayed in a user interface,
+        then this parameter should be set to 10.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"crs\" type=\"ct2007:CRSType\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>The
+        CRS code for the station departure board that is required.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"filterCrs\" type=\"ct2007:CRSType\" minOccurs=\"0\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>An
+        optional CRS code that will filter the returned departure board. For example,
+        if crs is set to \"MAN\", filterCRS is set to \"EUS\" and filterType is set
+        to \"to\" then the departure board will return a list of services that depart
+        Manchester Piccadilly and call at London Euston.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"filterType\" type=\"ct2007:FilterType\" default=\"to\" minOccurs=\"0\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>The
+        type of filter query that is required, either \"from\" or \"to\". This parameter
+        is ignored unless filterCrs is also present.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"timeOffset\" type=\"xs:int\" default=\"0\" minOccurs=\"0\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>A
+        time offset that may be applied to the current time to give the base time
+        for the departure board. The value could be negative if the client has suitable
+        permission configured, otherwise the minimun value will be 0. If the client
+        is not configured with suitable permission then upper bound will be 119.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"timeWindow\" type=\"xs:int\" default=\"120\" minOccurs=\"0\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>The
+        number of minutes added to the request start time to give the end time. The
+        parameter default value is 120 minutes, if the supplied value is greater than
+        120 or not supplied. If the supplied pararmeter vaule is less than 0 then
+        an error will return.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<xs:complexType
+        name=\"GetServiceDetailsRequestParams\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"serviceID\" type=\"ct2015:ServiceIDType\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>The
+        service ID obtained from a departure board response for which full details
+        are required. Note that service details are only available for a short time
+        after a service has arrived/departed from the location in the departure board
+        that the ID was obtained from.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<xs:complexType
+        name=\"GetDeparturesRequestParams\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"crs\" type=\"ct2007:CRSType\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>The
+        CRS code for the station departure board that is required.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"filterList\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>A
+        list of CRS codes for the station destinations that are required. There must
+        be at least one and may be no more than a maximum number of CRS codes in this
+        list. The actual limit may vary and can be found in the documentation.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t\t<xs:complexType>\r\n\t\t\t\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t\t\t\t<xs:element
+        name=\"crs\" type=\"ct2007:CRSType\" minOccurs=\"1\" maxOccurs=\"unbounded\"/>\r\n\t\t\t\t\t\t\t</xs:sequence>\r\n\t\t\t\t\t\t</xs:complexType>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"timeOffset\" type=\"xs:int\" default=\"0\" minOccurs=\"0\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>A
+        time offset that may be applied to the current time to give the base time
+        for the departure board. The value could be negative if the client has suitable
+        permission configured, otherwise the minimun value will be 0. If the client
+        is not configured with suitable permission then upper bound will be 119.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t\t<xs:element
+        name=\"timeWindow\" type=\"xs:int\" default=\"120\" minOccurs=\"0\">\r\n\t\t\t\t\t\t<xs:annotation>\r\n\t\t\t\t\t\t\t<xs:documentation>The
+        number of minutes added to the request start time to give the end time. The
+        parameter default value is 120 minutes, if the supplied value is greater than
+        120 or not supplied. If the supplied pararmeter vaule is less than 0 then
+        an error will return.</xs:documentation>\r\n\t\t\t\t\t\t</xs:annotation>\r\n\t\t\t\t\t</xs:element>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<!--
+        ============================================================================\r\n\t\t\t\tREQUEST
+        ELEMENT DEFINITIONS \r\n\t\t\t==============================================================================-->\r\n\t\t\t<xs:element
+        name=\"GetDepartureBoardRequest\" type=\"tns:GetBoardRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetArrivalBoardRequest\" type=\"tns:GetBoardRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetArrivalDepartureBoardRequest\" type=\"tns:GetBoardRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetServiceDetailsRequest\" type=\"tns:GetServiceDetailsRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetDepBoardWithDetailsRequest\" type=\"tns:GetBoardRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetArrBoardWithDetailsRequest\" type=\"tns:GetBoardRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetArrDepBoardWithDetailsRequest\" type=\"tns:GetBoardRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetNextDeparturesRequest\" type=\"tns:GetDeparturesRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetNextDeparturesWithDetailsRequest\" type=\"tns:GetDeparturesRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetFastestDeparturesRequest\" type=\"tns:GetDeparturesRequestParams\"/>\r\n\t\t\t<xs:element
+        name=\"GetFastestDeparturesWithDetailsRequest\" type=\"tns:GetDeparturesRequestParams\"/>\r\n\t\t\t<!--
+        ============================================================================\r\n\t\t\t\tRESPONSE
+        TYPE DEFINITIONS \r\n\t\t\t=================================================================================
+        -->\r\n\t\t\t<!-- ============  COMPLEX TYPES ================-->\r\n\t\t\t<xs:complexType
+        name=\"StationBoardResponseType\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"GetStationBoardResult\" type=\"ldbt20171001:StationBoard\" minOccurs=\"0\"/>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<xs:complexType
+        name=\"StationBoardWithDetailsResponseType\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"GetStationBoardResult\" type=\"ldbt20171001:StationBoardWithDetails\"
+        minOccurs=\"0\"/>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<xs:complexType
+        name=\"ServiceDetailsResponseType\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"GetServiceDetailsResult\" type=\"ldbt20171001:ServiceDetails\" minOccurs=\"0\"/>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<xs:complexType
+        name=\"DeparturesBoardResponseType\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"DeparturesBoard\" type=\"ldbt20171001:DeparturesBoard\" minOccurs=\"0\"/>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<xs:complexType
+        name=\"DeparturesBoardWithDetailsResponseType\">\r\n\t\t\t\t<xs:sequence>\r\n\t\t\t\t\t<xs:element
+        name=\"DeparturesBoard\" type=\"ldbt20171001:DeparturesBoardWithDetails\"
+        minOccurs=\"0\"/>\r\n\t\t\t\t</xs:sequence>\r\n\t\t\t</xs:complexType>\r\n\t\t\t<!--
+        ============  ELEMENTS  ================-->\r\n\t\t\t<xs:element name=\"GetDepartureBoardResponse\"
+        type=\"tns:StationBoardResponseType\"/>\r\n\t\t\t<xs:element name=\"GetArrivalBoardResponse\"
+        type=\"tns:StationBoardResponseType\"/>\r\n\t\t\t<xs:element name=\"GetArrivalDepartureBoardResponse\"
+        type=\"tns:StationBoardResponseType\"/>\r\n\t\t\t<xs:element name=\"GetServiceDetailsResponse\"
+        type=\"tns:ServiceDetailsResponseType\"/>\r\n\t\t\t<xs:element name=\"GetDepBoardWithDetailsResponse\"
+        type=\"tns:StationBoardWithDetailsResponseType\"/>\r\n\t\t\t<xs:element name=\"GetArrBoardWithDetailsResponse\"
+        type=\"tns:StationBoardWithDetailsResponseType\"/>\r\n\t\t\t<xs:element name=\"GetArrDepBoardWithDetailsResponse\"
+        type=\"tns:StationBoardWithDetailsResponseType\"/>\r\n\t\t\t<xs:element name=\"GetNextDeparturesResponse\"
+        type=\"tns:DeparturesBoardResponseType\"/>\r\n\t\t\t<xs:element name=\"GetNextDeparturesWithDetailsResponse\"
+        type=\"tns:DeparturesBoardWithDetailsResponseType\"/>\r\n\t\t\t<xs:element
+        name=\"GetFastestDeparturesResponse\" type=\"tns:DeparturesBoardResponseType\"/>\r\n\t\t\t<xs:element
+        name=\"GetFastestDeparturesWithDetailsResponse\" type=\"tns:DeparturesBoardWithDetailsResponseType\"/>\r\n\t\t</xs:schema>\r\n\t</wsdl:types>\r\n\t<wsdl:message
+        name=\"GetDepartureBoardSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetDepartureBoardRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetDepartureBoardSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetDepartureBoardResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrivalBoardSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetArrivalBoardRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrivalBoardSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetArrivalBoardResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrivalDepartureBoardSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetArrivalDepartureBoardRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrivalDepartureBoardSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetArrivalDepartureBoardResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetServiceDetailsSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetServiceDetailsRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetServiceDetailsSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetServiceDetailsResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetDepBoardWithDetailsSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetDepBoardWithDetailsRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetDepBoardWithDetailsSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetDepBoardWithDetailsResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrBoardWithDetailsSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetArrBoardWithDetailsRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrBoardWithDetailsSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetArrBoardWithDetailsResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrDepBoardWithDetailsSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetArrDepBoardWithDetailsRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetArrDepBoardWithDetailsSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetArrDepBoardWithDetailsResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetNextDeparturesSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetNextDeparturesRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetNextDeparturesSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\" element=\"tns:GetNextDeparturesResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetNextDeparturesWithDetailsSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetNextDeparturesWithDetailsRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetNextDeparturesWithDetailsSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetNextDeparturesWithDetailsResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetFastestDeparturesSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetFastestDeparturesRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetFastestDeparturesSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetFastestDeparturesResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetFastestDeparturesWithDetailsSoapIn\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetFastestDeparturesWithDetailsRequest\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"GetFastestDeparturesWithDetailsSoapOut\">\r\n\t\t<wsdl:part name=\"parameters\"
+        element=\"tns:GetFastestDeparturesWithDetailsResponse\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:message
+        name=\"AccessTokenMessage\">\r\n\t\t<wsdl:part name=\"AccessToken\" element=\"tok:AccessToken\"/>\r\n\t</wsdl:message>\r\n\t<wsdl:portType
+        name=\"LDBServiceSoap\">\r\n\t\t<wsdl:operation name=\"GetDepartureBoard\">\r\n\t\t\t<wsdl:input
+        message=\"tns:GetDepartureBoardSoapIn\"/>\r\n\t\t\t<wsdl:output message=\"tns:GetDepartureBoardSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrivalBoard\">\r\n\t\t\t<wsdl:input message=\"tns:GetArrivalBoardSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetArrivalBoardSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrivalDepartureBoard\">\r\n\t\t\t<wsdl:input message=\"tns:GetArrivalDepartureBoardSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetArrivalDepartureBoardSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetServiceDetails\">\r\n\t\t\t<wsdl:input message=\"tns:GetServiceDetailsSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetServiceDetailsSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetDepBoardWithDetails\">\r\n\t\t\t<wsdl:input message=\"tns:GetDepBoardWithDetailsSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetDepBoardWithDetailsSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrBoardWithDetails\">\r\n\t\t\t<wsdl:input message=\"tns:GetArrBoardWithDetailsSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetArrBoardWithDetailsSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrDepBoardWithDetails\">\r\n\t\t\t<wsdl:input message=\"tns:GetArrDepBoardWithDetailsSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetArrDepBoardWithDetailsSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetNextDepartures\">\r\n\t\t\t<wsdl:input message=\"tns:GetNextDeparturesSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetNextDeparturesSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetNextDeparturesWithDetails\">\r\n\t\t\t<wsdl:input message=\"tns:GetNextDeparturesWithDetailsSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetNextDeparturesWithDetailsSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetFastestDepartures\">\r\n\t\t\t<wsdl:input message=\"tns:GetFastestDeparturesSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetFastestDeparturesSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetFastestDeparturesWithDetails\">\r\n\t\t\t<wsdl:input message=\"tns:GetFastestDeparturesWithDetailsSoapIn\"/>\r\n\t\t\t<wsdl:output
+        message=\"tns:GetFastestDeparturesWithDetailsSoapOut\"/>\r\n\t\t</wsdl:operation>\r\n\t</wsdl:portType>\r\n\t<wsdl:binding
+        name=\"LDBServiceSoap\" type=\"tns:LDBServiceSoap\">\r\n\t\t<soap:binding
+        transport=\"http://schemas.xmlsoap.org/soap/http\"/>\r\n\t\t<wsdl:operation
+        name=\"GetDepartureBoard\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetDepartureBoard\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrivalBoard\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetArrivalBoard\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrivalDepartureBoard\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetArrivalDepartureBoard\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetServiceDetails\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetServiceDetails\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetDepBoardWithDetails\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetDepBoardWithDetails\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrBoardWithDetails\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetArrBoardWithDetails\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrDepBoardWithDetails\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetArrDepBoardWithDetails\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetNextDepartures\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetNextDepartures\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetNextDeparturesWithDetails\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetNextDeparturesWithDetails\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetFastestDepartures\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetFastestDepartures\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetFastestDeparturesWithDetails\">\r\n\t\t\t<soap:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetFastestDeparturesWithDetails\"
+        style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap:body use=\"literal\"/>\r\n\t\t\t\t<soap:header
+        message=\"tns:AccessTokenMessage\" part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t</wsdl:binding>\r\n\t<wsdl:binding
+        name=\"LDBServiceSoap12\" type=\"tns:LDBServiceSoap\">\r\n\t\t<soap12:binding
+        transport=\"http://schemas.xmlsoap.org/soap/http\"/>\r\n\t\t<wsdl:operation
+        name=\"GetDepartureBoard\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetDepartureBoard\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrivalBoard\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetArrivalBoard\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrivalDepartureBoard\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetArrivalDepartureBoard\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetServiceDetails\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetServiceDetails\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetDepBoardWithDetails\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetDepBoardWithDetails\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrBoardWithDetails\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetArrBoardWithDetails\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetArrDepBoardWithDetails\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetArrDepBoardWithDetails\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetNextDepartures\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetNextDepartures\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetNextDeparturesWithDetails\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetNextDeparturesWithDetails\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetFastestDepartures\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetFastestDepartures\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t\t<wsdl:operation
+        name=\"GetFastestDeparturesWithDetails\">\r\n\t\t\t<soap12:operation soapAction=\"http://thalesgroup.com/RTTI/2015-05-14/ldb/GetFastestDeparturesWithDetails\"
+        soapActionRequired=\"true\" style=\"document\"/>\r\n\t\t\t<wsdl:input>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t\t<soap12:header message=\"tns:AccessTokenMessage\"
+        part=\"AccessToken\" use=\"literal\"/>\r\n\t\t\t</wsdl:input>\r\n\t\t\t<wsdl:output>\r\n\t\t\t\t<soap12:body
+        use=\"literal\"/>\r\n\t\t\t</wsdl:output>\r\n\t\t</wsdl:operation>\r\n\t</wsdl:binding>\r\n</wsdl:definitions>\r\n"
+    http_version: 
+  recorded_at: Fri, 23 Feb 2018 14:21:45 GMT
+- request:
+    method: post
+    uri: https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb11.asmx
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://thalesgroup.com/RTTI/2017-10-01/ldb/"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://thalesgroup.com/RTTI/2014-02-20/ldb/"
+        xmlns:ns2="http://thalesgroup.com/RTTI/2010-11-01/ldb/commontypes"><env:Header><ns2:AccessToken><ns2:TokenValue>***REMOVED***</ns2:TokenValue></ns2:AccessToken></env:Header><env:Body><tns:GetDepartureBoardRequest><tns:numRows>15</tns:numRows><tns:crs>GLC</tns:crs><tns:filterCrs
+        xsi:nil="true"/><tns:filterType>to</tns:filterType><tns:timeOffset xsi:nil="true"/><tns:timeWindow
+        xsi:nil="true"/></tns:GetDepartureBoardRequest></env:Body></env:Envelope>
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.5.0 (2017-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 23 Feb 2018 14:21:45 GMT
+      Soapaction:
+      - '"http://thalesgroup.com/RTTI/2012-01-13/ldb/GetDepartureBoard"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '791'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Length:
+      - '9665'
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Server:
+      - liteweb201
+      Date:
+      - Fri, 23 Feb 2018 14:21:44 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetDepartureBoardResponse
+        xmlns="http://thalesgroup.com/RTTI/2017-10-01/ldb/"><GetStationBoardResult
+        xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt6="http://thalesgroup.com/RTTI/2017-02-02/ldb/types"
+        xmlns:lt7="http://thalesgroup.com/RTTI/2017-10-01/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types"
+        xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types"
+        xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types"><lt4:generatedAt>2018-02-23T14:21:45.4551299+00:00</lt4:generatedAt><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs><lt4:platformAvailable>true</lt4:platformAvailable><lt7:trainServices><lt7:service><lt4:std>14:20</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>4R</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>1EInFILNb5BWvxnAIhAmCg==</lt4:serviceID><lt5:rsid>SR595100</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Lanark</lt4:locationName><lt4:crs>LNK</lt4:crs><lt4:via>via
+        Bellshill &amp; Shieldmuir</lt4:via></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:20</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>9R</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>rhGSxPgk9o2eVaWIdHYWqw==</lt4:serviceID><lt5:rsid>SR857200</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Newton</lt4:locationName><lt4:crs>NTN</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:22</lt4:std><lt4:etd>14:24</lt4:etd><lt4:platform>17</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>IP5llgi0ztKiTsDvYWpaxA==</lt4:serviceID><lt5:rsid>SR644600</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Cumbernauld</lt4:locationName><lt4:crs>CUB</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Dalmuir</lt4:locationName><lt4:crs>DMR</lt4:crs><lt4:via>via
+        Yoker</lt4:via></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:25</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>14R</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>qyJ68Ijrz8Wpp/l9HO86bQ==</lt4:serviceID><lt5:rsid>SR555400</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Gourock</lt4:locationName><lt4:crs>GRK</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:27</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>11R</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>b69hs1d8E57rB1W6fB4M3g==</lt4:serviceID><lt5:rsid>SR586700</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Barrhead</lt4:locationName><lt4:crs>BRR</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:28</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>17</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>53NA4fFpdYvhEK1Z742hYA==</lt4:serviceID><lt5:rsid>SR890700</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Whifflet</lt4:locationName><lt4:crs>WFF</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Dalmuir</lt4:locationName><lt4:crs>DMR</lt4:crs><lt4:via>via
+        Singer</lt4:via></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:28</lt4:std><lt4:etd>14:32</lt4:etd><lt4:platform>16</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>vjydAaZ4tC1aB/sTwAXqkQ==</lt4:serviceID><lt5:rsid>SR886100</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Dalmuir</lt4:locationName><lt4:crs>DMR</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Motherwell</lt4:locationName><lt4:crs>MTH</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:30</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>15R</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>5oYjULlAdz0M9Clh/vNIyg==</lt4:serviceID><lt5:rsid>SR560500</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Ayr</lt4:locationName><lt4:crs>AYR</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:34</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>13R</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>h1N0eUrPCbvufcDO4UmoMQ==</lt4:serviceID><lt5:rsid>SR709900</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Ayr</lt4:locationName><lt4:crs>AYR</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:34</lt4:std><lt4:etd>14:35</lt4:etd><lt4:platform>16</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>8lcjAxTm9TCJhOHT1kfxsQ==</lt4:serviceID><lt5:rsid>SR622000</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Milngavie</lt4:locationName><lt4:crs>MLN</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Motherwell</lt4:locationName><lt4:crs>MTH</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:35</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>8R</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>hTJtppURD1UspjrhoOi1cA==</lt4:serviceID><lt5:rsid>SR798500</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Neilston</lt4:locationName><lt4:crs>NEI</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:36</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>12F</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>RluMO6tTh+hUtyXE8X0fbQ==</lt4:serviceID><lt5:rsid>SR653600</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Gourock</lt4:locationName><lt4:crs>GRK</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:39</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>17</lt4:platform><lt4:operator>ScotRail</lt4:operator><lt4:operatorCode>SR</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>yrkH+CS88B8YJ2cE7LbqZA==</lt4:serviceID><lt5:rsid>SR730400</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Larkhall</lt4:locationName><lt4:crs>LRH</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Milngavie</lt4:locationName><lt4:crs>MLN</lt4:crs></lt4:location></lt5:destination></lt7:service><lt7:service><lt4:std>14:40</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:platform>1R</lt4:platform><lt4:operator>Virgin Trains</lt4:operator><lt4:operatorCode>VT</lt4:operatorCode><lt4:serviceType>train</lt4:serviceType><lt4:serviceID>k2aXoOk9tv5xJVyx9sd07Q==</lt4:serviceID><lt5:rsid>VT674000</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Central</lt4:locationName><lt4:crs>GLC</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>London
+        Euston</lt4:locationName><lt4:crs>EUS</lt4:crs></lt4:location></lt5:destination></lt7:service></lt7:trainServices><lt7:busServices><lt7:service><lt4:std>14:30</lt4:std><lt4:etd>On
+        time</lt4:etd><lt4:operator>TransPennine Express</lt4:operator><lt4:operatorCode>TP</lt4:operatorCode><lt4:serviceType>bus</lt4:serviceType><lt4:serviceID>80OPGKSZSN1A6udevWXQYw==</lt4:serviceID><lt5:rsid>TP820600</lt5:rsid><lt5:origin><lt4:location><lt4:locationName>Glasgow
+        Queen Street</lt4:locationName><lt4:crs>GLQ</lt4:crs></lt4:location></lt5:origin><lt5:destination><lt4:location><lt4:locationName>Glasgow
+        Airport (Bus)</lt4:locationName><lt4:crs>GGT</lt4:crs></lt4:location></lt5:destination></lt7:service></lt7:busServices></GetStationBoardResult></GetDepartureBoardResponse></soap:Body></soap:Envelope>
+    http_version: 
+  recorded_at: Fri, 23 Feb 2018 14:21:45 GMT
+recorded_with: VCR 4.0.0

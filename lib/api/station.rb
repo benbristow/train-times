@@ -13,11 +13,11 @@ class Station
     new(location[:crs], location[:location_name])
   end
 
-  def arrivals(from:)
+  def arrivals(from: nil)
     LDBWS.new.arrivals(code, from_crs: from)
   end
 
-  def departures(to:)
+  def departures(to: nil)
     LDBWS.new.departures(code, destination_crs: to)
   end
 
