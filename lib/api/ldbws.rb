@@ -20,7 +20,10 @@ class LDBWS
 
   def extract_services(board_response)
     throw 'No train times found' if board_response[:get_station_board_result][:train_services].nil?
-    board_response[:get_station_board_result][:train_services][:service].map { |service| Service.new(service) }
+    services = board_response[:get_station_board_result][:train_services][:service]
+    services.map { |service| Service.new(service) }
+  rescue TypeError # quick hack - when only one service object seems to return differently
+    Service.new(services)
   end
 
   def request_body(a, b, mode)
