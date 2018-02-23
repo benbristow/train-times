@@ -28,7 +28,7 @@ class Service
   end
 
   def to_s
-    opening = @mode == 'arrival' ? "arrival at" : 'departure from'
+    opening = @mode == 'arrival' ? 'arrival at' : 'departure from'
     status_display = on_time? ? '' : " (Changed: #{status})"
     platform_display = platform.blank? ? 'unspecified platform' : "platform #{platform}"
 
