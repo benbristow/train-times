@@ -1,5 +1,7 @@
 # Train Times
 
+[![Build Status](https://travis-ci.org/benbristow/train-times.svg?branch=master)](https://travis-ci.org/benbristow/train-times)
+
 ## What?
 
 CLI (Ruby) script to read National Rail train arrivals/departures.
