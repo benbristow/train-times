@@ -47,7 +47,7 @@ PYG = Paisley Gilmour Street
 ### Arrivals
 
 ```
-./main.rb --mode='arrivals' ARRIVING [FROM]
+./main.rb --a ARRIVING [FROM]
 ```
 
 * Arriving: Where the train is arriving at
