@@ -25,6 +25,6 @@ Clamp do
   rescue TrainTimesError => error
     puts "Error: #{error.message}"
   rescue Savon::SOAPFault
-    puts 'Server error. You probably put in an invalid station code'
+    puts 'Error: Server error - You probably put in an invalid station code'
   end
 end
