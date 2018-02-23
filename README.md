@@ -75,3 +75,13 @@ tt GLC PYG
 ```
 
 Cool, huh?
+
+## Running Tests
+
+Tests use Rspec as a framework. To run the tests run:
+
+```
+rspec
+```
+
+from the root folder
