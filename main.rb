@@ -22,5 +22,7 @@ Clamp do
     @primary_station = Station.new(primary_crs)
     puts @primary_station.departures(to: (secondary_crs || '').upcase) unless mode == 'arrivals'
     puts @primary_station.arrivals(from: (secondary_crs || '').upcase) if mode == 'arrivals'
+  rescue Savon::SOAPFault
+    puts 'Server error. You probably put in an invalid station code'
   end
 end
