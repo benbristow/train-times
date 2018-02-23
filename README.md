@@ -6,19 +6,6 @@
 ➜  train-times git:(master) ./main.rb GLQ EDB
 Scheduled departure from unspecified platform at 16:45 (Changed: Cancelled) - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
 Scheduled departure from platform 9 at 16:47 - ScotRail service from Milngavie (MLN) to Edinburgh (EDB)
-Scheduled departure from unspecified platform at 17:00 - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
-Scheduled departure from platform 9 at 17:08 - ScotRail service from Helensburgh Central (HLC) to Edinburgh (EDB)
-Scheduled departure from unspecified platform at 17:15 - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
-Scheduled departure from platform 9 at 17:18 - ScotRail service from Milngavie (MLN) to Edinburgh (EDB)
-Scheduled departure from unspecified platform at 17:30 - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
-Scheduled departure from platform 9 at 17:38 - ScotRail service from Helensburgh Central (HLC) to Edinburgh (EDB)
-Scheduled departure from unspecified platform at 17:45 - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
-Scheduled departure from platform 9 at 17:48 - ScotRail service from Milngavie (MLN) to Edinburgh (EDB)
-Scheduled departure from unspecified platform at 18:00 - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
-Scheduled departure from platform 9 at 18:08 - ScotRail service from Helensburgh Central (HLC) to Edinburgh (EDB)
-Scheduled departure from unspecified platform at 18:15 - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
-Scheduled departure from platform 9 at 18:17 - ScotRail service from Milngavie (MLN) to Edinburgh (EDB)
-Scheduled departure from unspecified platform at 18:30 - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
 ```
 
 ## What?
