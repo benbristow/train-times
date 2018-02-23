@@ -12,7 +12,7 @@ require_all 'lib'
 
 Clamp do
   parameter 'ORIGIN/ARRIVAL', 'Departures: Starting station / Arrivals: Station arriving at', attribute_name: :primary_crs
-  parameter 'DESTINATION/FROM', 'Departures: Destination station / Arrivals: Station train arriving from', attribute_name: :secondary_crs
+  parameter '[DESTINATION/FROM]', 'Departures: Destination station / Arrivals: Station train arriving from', attribute_name: :secondary_crs
 
   option ['-m', '--mode'], 'Mode', 'departures/arrivals', default: 'departures' do |answer|
     answer == 'arrivals' ? 'arrivals' : 'departures'
@@ -20,7 +20,7 @@ Clamp do
 
   def execute
     @primary_station = Station.new(primary_crs)
-    puts @primary_station.departures(to: secondary_crs.upcase) unless mode == 'arrivals'
-    puts @primary_station.arrivals(from: secondary_crs.upcase) if mode == 'arrivals'
+    puts @primary_station.departures(to: (secondary_crs || '').upcase) unless mode == 'arrivals'
+    puts @primary_station.arrivals(from: (secondary_crs || '').upcase) if mode == 'arrivals'
   end
 end
