@@ -1,6 +1,6 @@
 # Train Times
 
-![image](https://user-images.githubusercontent.com/1159378/36936521-add287aa-1efe-11e8-9a03-7d5711672e5a.png)
+![image](https://user-images.githubusercontent.com/1159378/36936521-add287aa-1efe-11e8-9a03-7d5711672e5a.png | width=300)
 
 [![Build Status](https://travis-ci.org/benbristow/train-times.svg?branch=master)](https://travis-ci.org/benbristow/train-times)
 
