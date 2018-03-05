@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 class Table
-  SERVICE_KEYS = %w[time estimated platform origin destination].freeze
+  TABLE_MAPPING = {
+    'Time' => 'time',
+    'Estimated' => 'estimated',
+    'Plat.' => 'platform',
+    'Origin' => 'origin',
+    'Destination' => 'destination'
+  }.freeze
 
   def initialize(services)
     @services = services
@@ -14,12 +20,12 @@ class Table
   private
 
   def headings
-    SERVICE_KEYS.map(&:capitalize)
+    TABLE_MAPPING.keys
   end
 
   def rows
     @services.map do |service|
-      SERVICE_KEYS.map { |key| service.send(key) }
+      TABLE_MAPPING.values.map { |key| service.send(key) }
     end
   end
 end
