@@ -5,12 +5,14 @@
 ![image](https://user-images.githubusercontent.com/1159378/36936548-f60a8ae0-1efe-11e8-8cec-afec838605c9.png)
 
 ```
-➜  train-times git:(master) ✗ ruby main.rb -a EUS
-#+-------+-----------+----------+---------------------+---------------------+
-| Time  | Estimated | Platform | Origin              | Destination         |
-+-------+-----------+----------+---------------------+---------------------+
-| 01:03 | 00:51     | 14       | Wolverhampton (WVH) | London Euston (EUS) |
-+-------+-----------+----------+---------------------+---------------------+
+➜  train-times git:(master) tt -a mkc
++-------+-----------+----------+---------------------+-----------------------------+
+| Time  | Estimated | Platform | Origin              | Destination                 |
++-------+-----------+----------+---------------------+-----------------------------+
+| 01:08 | 01:03     | 6        | London Euston (EUS) | Northampton (NMP)           |
+| 01:46 | On time   | 6        | London Euston (EUS) | Northampton (NMP)           |
+| 02:37 | On time   | N/S      | London Euston (EUS) | Milton Keynes Central (MKC) |
++-------+-----------+----------+---------------------+-----------------------------+
 ```
 
 ## What?
