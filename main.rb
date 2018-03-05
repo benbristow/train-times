@@ -17,8 +17,11 @@ Clamp do
 
   def execute
     @primary_station = Station.new(primary_crs)
-    puts @primary_station.departures(to: (secondary_crs || '').upcase) unless arrivals?
-    puts @primary_station.arrivals(from: (secondary_crs || '').upcase) if arrivals?
+
+    @services = @primary_station.departures(to: (secondary_crs || '').upcase) unless arrivals?
+    @services = @primary_station.arrivals(from: (secondary_crs || '').upcase) if arrivals?
+
+    puts Table.new(@services).to_s
   rescue TrainTimesError => error
     puts "Error: #{error.message}"
   rescue Savon::SOAPFault

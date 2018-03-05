@@ -5,9 +5,12 @@
 ![image](https://user-images.githubusercontent.com/1159378/36936548-f60a8ae0-1efe-11e8-8cec-afec838605c9.png)
 
 ```
-➜  train-times git:(master) ./main.rb GLQ EDB
-Scheduled departure from unspecified platform at 16:45 (Changed: Cancelled) - ScotRail service from Glasgow Queen Street (GLQ) to Edinburgh (EDB)
-Scheduled departure from platform 9 at 16:47 - ScotRail service from Milngavie (MLN) to Edinburgh (EDB)
+➜  train-times git:(master) ✗ ruby main.rb -a EUS
++-------+--------+----------+---------------------+---------------------+
+| Time  | Status | Platform | Origin              | Destination         |
++-------+--------+----------+---------------------+---------------------+
+| 01:03 | 00:51  | 14       | Wolverhampton (WVH) | London Euston (EUS) |
++-------+--------+----------+---------------------+---------------------+
 ```
 
 ## What?

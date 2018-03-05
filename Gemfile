@@ -7,6 +7,7 @@ gem 'dotenv'
 gem 'httpclient'
 gem 'require_all'
 gem 'savon'
+gem 'terminal-table'
 
 group :test do
   gem 'rspec'

@@ -18,20 +18,12 @@ class Service
     @status = info[:etd] || info[:eta]
     @origin = Station.from_location(info[:origin][:location])
     @destination = Station.from_location(info[:destination][:location])
-    @platform = info[:platform]
+    @platform = info[:platform] || 'N/S'
     @operator = info[:operator]
     @transport_method = info[:service_type]
   end
 
   def on_time?
     status == 'On time'
-  end
-
-  def to_s
-    opening = @mode == 'arrival' ? 'arrival at' : 'departure from'
-    status_display = on_time? ? '' : " (Changed: #{status})"
-    platform_display = platform.blank? ? 'unspecified platform' : "platform #{platform}"
-
-    "Scheduled #{opening} #{platform_display} at #{time}#{status_display} - #{operator} service from #{origin} to #{destination}"
   end
 end
