@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Table
-  SERVICE_KEYS = %w[time status platform origin destination].freeze
+  SERVICE_KEYS = %w[time estimated platform origin destination].freeze
 
   def initialize(services)
     @services = services

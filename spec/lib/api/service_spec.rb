@@ -11,24 +11,6 @@ RSpec.describe Service do
     end
   end
 
-  describe '#on_time' do
-    it 'knows an arrival is on time' do
-      expect(arrival.on_time?).to be_truthy
-    end
-
-    it 'knows when an arrival is not time' do
-      expect(arrival(eta: 'Cancelled').on_time?).to be_falsey
-    end
-
-    it 'knows a departure is on time' do
-      expect(departure.on_time?).to be_truthy
-    end
-
-    it 'knows when a departure is not time' do
-      expect(departure(etd: 'Cancelled').on_time?).to be_falsey
-    end
-  end
-
   private
 
   def arrival(params = {})
