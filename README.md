@@ -5,14 +5,26 @@
 ![image](https://user-images.githubusercontent.com/1159378/36936548-f60a8ae0-1efe-11e8-8cec-afec838605c9.png)
 
 ```
-➜  train-times git:(master) tt -a mkc
-+-------+-----------+----------+---------------------+-----------------------------+
-| Time  | Estimated | Platform | Origin              | Destination                 |
-+-------+-----------+----------+---------------------+-----------------------------+
-| 01:08 | 01:03     | 6        | London Euston (EUS) | Northampton (NMP)           |
-| 01:46 | On time   | 6        | London Euston (EUS) | Northampton (NMP)           |
-| 02:37 | On time   | N/S      | London Euston (EUS) | Milton Keynes Central (MKC) |
-+-------+-----------+----------+---------------------+-----------------------------+
+➜  train-times git:(master) tt glc
++-------+-----------+----------+-----------------------+---------------------+
+| Time  | Estimated | Platform | Origin                | Destination         |
++-------+-----------+----------+-----------------------+---------------------+
+| 09:40 | Cancelled | N/S      | Glasgow Central (GLC) | London Euston (EUS) |
+| 09:42 | On time   | 11R      | Glasgow Central (GLC) | Paisley Canal (PCN) |
+| 09:43 | On time   | 4R       | Glasgow Central (GLC) | Kilmarnock (KMK)    |
+| 09:44 | 09:46     | 16       | Dalmuir (DMR)         | Larkhall (LRH)      |
+| 09:45 | On time   | 9F       | Glasgow Central (GLC) | Newton (NTN)        |
+| 09:47 | On time   | 8F       | Glasgow Central (GLC) | East Kilbride (EKL) |
+| 09:48 | On time   | 14R      | Glasgow Central (GLC) | Largs (LAR)         |
+| 09:50 | On time   | 5R       | Glasgow Central (GLC) | Lanark (LNK)        |
+| 09:51 | On time   | 7R       | Glasgow Central (GLC) | Cathcart (CCT)      |
+| 09:51 | On time   | 17       | Motherwell (MTH)      | Dalmuir (DMR)       |
+| 09:55 | On time   | 9R       | Glasgow Central (GLC) | Gourock (GRK)       |
+| 09:57 | On time   | N/S      | Glasgow Central (GLC) | Barrhead (BRR)      |
+| 09:57 | On time   | 15F      | Glasgow Central (GLC) | Wemyss Bay (WMS)    |
+| 09:57 | On time   | 16       | Dalmuir (DMR)         | Whifflet (WFF)      |
+| 09:58 | On time   | 17       | Motherwell (MTH)      | Dalmuir (DMR)       |
++-------+-----------+----------+-----------------------+---------------------+
 ```
 
 ## What?
