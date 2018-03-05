@@ -11,6 +11,16 @@ RSpec.describe Service do
     end
   end
 
+  describe '#platform' do
+    it 'displays platform when assigned' do
+      expect(arrival(platform: 1).platform).to eq(1)
+    end
+
+    it 'displays N/S (not-specified) when no platform assigned' do
+      expect(arrival(platform: nil).platform).to eq('N/S')
+    end
+  end
+
   private
 
   def arrival(params = {})
