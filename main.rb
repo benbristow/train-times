@@ -23,5 +23,9 @@ Clamp do
     puts "Error: #{error.message}"
   rescue Savon::SOAPFault
     puts 'Error: Server error - You probably put in an invalid station code'
+  rescue SocketError
+    puts 'Unable to connect to National Rail API. Perhaps there is an issue with your internet connection?'
+  rescue Exception => error
+    puts "Unknown error: #{error}"
   end
 end
