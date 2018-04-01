@@ -5,7 +5,7 @@
 ![image](https://user-images.githubusercontent.com/1159378/36936548-f60a8ae0-1efe-11e8-8cec-afec838605c9.png)
 
 ```
-➜  train-times git:(master) ✗ tt glc   
+➜  train-times git:(master) ✗ tt departures glc   
 +-------+-----------+-------+-----------------------+---------------------+
 | Time  | Estimated | Plat. | Origin                | Destination         |
 +-------+-----------+-------+-----------------------+---------------------+
@@ -64,22 +64,30 @@ PYG = Paisley Gilmour Street
 ### Departures
 
 ```
-./main.rb ORIGIN [DESTINATION]
+./main.rb departures ORIGIN [DESTINATION]
 ```
 
-* Origin: Where the train is departing from
+* ORIGIN: Where the train is departing from
 
-* Destination (optional - leave blank for anywhere): Where the train is going - this can be anywhere the train stops down the line
+* DESTINATION (optional - leave blank for anywhere): Where the train is going - this can be anywhere the train stops down the line
 
 ### Arrivals
 
 ```
-./main.rb --a ARRIVING [FROM]
+./main.rb arrivals ARRIVING [FROM]
 ```
 
-* Arriving: Where the train is arriving at
+* ARRIVING: Where the train is arriving at
 
-* From (optional - leave blank for all): Where the train is coming from before it arrives - this can also be anywhere the train stops down the line
+* FROM (optional - leave blank for all): Where the train is coming from before it arrives - this can also be anywhere the train stops down the line
+
+### Service details
+
+```
+./main.rb details SERVICE_ID
+```
+
+* SERVICE_ID: The ID of the service. This can be retrieved from departures/arrivals.
 
 ### Help
 

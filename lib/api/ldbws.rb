@@ -7,13 +7,18 @@ class LDBWS
   NS2_NAMESPACE = 'http://thalesgroup.com/RTTI/2010-11-01/ldb/commontypes'
 
   def arrivals(at_crs, from_crs: nil)
-    response = client.call(:get_arrival_board, message: request_body(at_crs, from_crs, 'arrivals'))
+    response = client.call(:get_arrival_board, message: service_board_request(at_crs, from_crs, 'arrivals'))
     extract_services(response.body[:get_arrival_board_response])
   end
 
   def departures(origin_crs, destination_crs: nil)
-    response = client.call(:get_departure_board, message: request_body(origin_crs, destination_crs, 'departures'))
+    response = client.call(:get_departure_board, message: service_board_request(origin_crs, destination_crs, 'departures'))
     extract_services(response.body[:get_departure_board_response])
+  end
+
+  def service_details(service_id)
+    response = client.call(:get_service_details, message: { serviceID: service_id })
+    Service.new(response.body[:get_service_details_response][:get_service_details_result].merge(:service_id => service_id))
   end
 
   private
@@ -26,7 +31,7 @@ class LDBWS
     [Service.new(services)]
   end
 
-  def request_body(a, b, mode)
+  def service_board_request(a, b, mode)
     {
       numRows: 15,
       crs: a,
