@@ -12,8 +12,8 @@ require_all 'lib'
 
 Clamp do
   subcommand 'arrivals', 'Get arrivals for a station' do
-    parameter 'Arriving', 'Station trains are arriving at', attribute_name: :arriving
-    parameter '[From]', 'Station trains are arriving from', attribute_name: :from
+    parameter 'ARRIVING', 'Station trains are arriving at', attribute_name: :arriving
+    parameter '[FROM]', 'Station trains are arriving from', attribute_name: :from
 
     def execute
       with_error_handling do
@@ -23,7 +23,7 @@ Clamp do
   end
 
   subcommand 'departures', 'Get departures for a station' do
-    parameter 'Departing', 'Station trains are departing from', attribute_name: :departing
+    parameter 'DEPARTING', 'Station trains are departing from', attribute_name: :departing
     parameter '[DESTINATION]', 'Station trains are travelling to', attribute_name: :destination
     
     option ['-t', '--terminating'], :flag, 'Show only services terminating at the provided destination station'
@@ -44,7 +44,7 @@ Clamp do
   end
 
   subcommand 'details', 'Get details for a specific service' do
-    parameter 'Service ID', 'Service ID of the train service', attribute_name: :service_id
+    parameter 'SERVICE_ID', 'Service ID of the train service', attribute_name: :service_id
 
     def execute
       with_error_handling do
