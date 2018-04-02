@@ -35,7 +35,7 @@ RSpec.describe Service do
     {
       platform: '4R',
       operator: 'ScotRail',
-      operator_code: 'SR',
+      operator_crs: 'SR',
       service_type: 'train',
       service_id: '1EInFILNb5BWvxnAIhAmCg==',
       rsid: 'SR595100',

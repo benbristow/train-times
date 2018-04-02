@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 RSpec.describe Station do
-  it 'can be created with just a station code' do
+  it 'can be created with just a station crs' do
     station = Station.new('glc')
 
-    expect(station.code).to eq('GLC')
+    expect(station.crs).to eq('GLC')
     expect(station.name).to eq('')
   end
 
-  it 'can be created with a station code and a name' do
+  it 'can be created with a station crs and a name' do
     station = Station.new('glc', 'Glasgow Central')
 
-    expect(station.code).to eq('GLC')
+    expect(station.crs).to eq('GLC')
     expect(station.name).to eq('Glasgow Central')
   end
 
@@ -39,13 +39,13 @@ RSpec.describe Station do
   end
 
   context '#to_s' do
-    it 'outputs just station code when has no name specified' do
+    it 'outputs just station crs when has no name specified' do
       station = Station.new('glc')
 
       expect(station.to_s).to eq('GLC')
     end
 
-    it 'outputs both station code and name when available' do
+    it 'outputs both station crs and name when available' do
       station = Station.new('glc', 'Glasgow Central')
 
       expect(station.to_s).to eq('Glasgow Central (GLC)')

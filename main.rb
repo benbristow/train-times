@@ -24,11 +24,21 @@ Clamp do
 
   subcommand 'departures', 'Get departures for a station' do
     parameter 'Departing', 'Station trains are departing from', attribute_name: :departing
-    parameter '[To]', 'Station trains are travelling to', attribute_name: :to
+    parameter '[DESTINATION]', 'Station trains are travelling to', attribute_name: :destination
+    
+    option ['-t', '--terminating'], :flag, 'Show only services terminating at the provided destination station'
 
     def execute
       with_error_handling do
-        puts ServiceTable.new(station_board(departing, to, 'departures')).to_s
+        services = station_board(departing, destination, 'departures')
+
+        if terminating? && destination
+          services = services.select do |service|
+            service.destination.crs.casecmp(destination).zero?
+          end
+        end
+
+        puts ServiceTable.new(services).to_s
       end
     end
   end

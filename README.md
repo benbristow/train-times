@@ -71,6 +71,8 @@ PYG = Paisley Gilmour Street
 
 * DESTINATION (optional - leave blank for anywhere): Where the train is going - this can be anywhere the train stops down the line
 
+* `-t --terminating` - Show only trains that are terminating at the destination.
+
 ### Arrivals
 
 ```
