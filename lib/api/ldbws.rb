@@ -18,7 +18,7 @@ class LDBWS
 
   def service_details(service_id)
     response = client.call(:get_service_details, message: { serviceID: service_id })
-    Service.new(response.body[:get_service_details_response][:get_service_details_result].merge(:service_id => service_id))
+    Service.new(response.body[:get_service_details_response][:get_service_details_result].merge(service_id: service_id))
   end
 
   private
