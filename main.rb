@@ -45,7 +45,7 @@ Clamp do
   end
 
   private
-  
+
   def with_error_handling
     yield
   rescue TrainTimesError => error
