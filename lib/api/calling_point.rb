@@ -9,7 +9,6 @@ class CallingPoint
     @station = Station.from_location(info)
     @scheduled = info[:st] || info[:sta]
     @estimated = parse_estimated(info)
-    puts info.to_json
   end
 
   private
