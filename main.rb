@@ -43,7 +43,7 @@ Clamp do
     end
   end
 
-  subcommand 'details', 'Get detailsrmation for a specific service' do
+  subcommand 'details', 'Get details for a specific service' do
     parameter 'Service ID', 'Service ID of the train service', attribute_name: :service_id
 
     def execute
