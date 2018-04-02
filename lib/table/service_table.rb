@@ -11,6 +11,7 @@ class ServiceTable < Table
   }.freeze
 
   def initialize(services)
+    services = [] if services.nil?
     services = [services] unless services.is_a?(Array)
     super(services, TABLE_MAPPING)
   end
