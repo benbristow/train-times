@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative 'table'
 
 class ServiceTable < Table
   TABLE_MAPPING = {
