@@ -4,6 +4,7 @@ require_relative 'table'
 class ServiceTable < Table
   TABLE_MAPPING = {
     'Time' => 'time',
+    'Operator' => 'operator',
     'Estimated' => 'estimated',
     'Plat.' => 'platform',
     'Origin' => 'origin',
