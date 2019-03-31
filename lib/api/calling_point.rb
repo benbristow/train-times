@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class CallingPoint
-  attr_accessor :station
-  attr_accessor :estimated
-  attr_accessor :scheduled
+  attr_accessor :station, :estimated, :scheduled
 
   def initialize(info)
     @station = Station.from_location(info)

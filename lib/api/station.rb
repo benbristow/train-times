@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Station
-  attr_accessor :name
-  attr_reader :crs
+  attr_accessor :name, :crs
 
   def initialize(crs, name = '')
     @name = name
