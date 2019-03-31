@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class Service
-  attr_reader :id
-  attr_reader :mode
-  attr_reader :time
-  attr_reader :estimated
-  attr_reader :origin
-  attr_reader :destination
-  attr_reader :platform
-  attr_reader :operator
-  attr_reader :transport_method
-  attr_reader :timetable
+  attr_reader :id, :mode, :time, :estimated, :origin, :destination, :platform, :operator, :transport_method, :timetable
+
+  OPERATORS_MAPPING = {
+    'Chiltern Railways' => 'Chiltern',
+    'East Midlands Trains' => 'EMT',
+    'Great Western Railway' => 'GWR',
+    'London North Eastern Railway' => 'LNER',
+    'TransPennine Express' => 'TPE',
+    'Transport for Wales' => 'TfW'
+  }.freeze
 
   def initialize(info)
     @timetable = Timetable.new(info)
@@ -22,7 +22,7 @@ class Service
     @destination = parse_destination(info)
     @estimated = parse_estimated(info)
     @platform = info[:platform] || 'N/S'
-    @operator = info[:operator]
+    @operator = OPERATORS_MAPPING[info[:operator]] || info[:operator]
     @transport_method = info[:service_type]
   end
 
