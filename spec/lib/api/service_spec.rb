@@ -16,8 +16,8 @@ RSpec.describe Service do
       expect(arrival(platform: 1).platform).to eq(1)
     end
 
-    it 'displays N/S (not-specified) when no platform assigned' do
-      expect(arrival(platform: nil).platform).to eq('N/S')
+    it 'displays -- (not assigned) when no platform assigned' do
+      expect(arrival(platform: nil).platform).to eq('--')
     end
   end
 

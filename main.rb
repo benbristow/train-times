@@ -17,6 +17,7 @@ Clamp do
 
     def execute
       with_error_handling do
+	system('clear')
         puts ServiceTable.new(station_board(arriving, from, 'arrivals')).to_s
       end
     end
@@ -38,6 +39,7 @@ Clamp do
           end
         end
 
+	system('clear')
         puts ServiceTable.new(services).to_s
       end
     end
@@ -49,6 +51,7 @@ Clamp do
     def execute
       with_error_handling do
         service = Service.from_service_id(service_id)
+	system('clear')
         puts CallingPointTable.new(service.timetable.calling_points).to_s
       end
     end

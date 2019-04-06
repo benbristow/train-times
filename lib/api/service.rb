@@ -9,7 +9,9 @@ class Service
     'Great Western Railway' => 'GWR',
     'London North Eastern Railway' => 'LNER',
     'TransPennine Express' => 'TPE',
-    'Transport for Wales' => 'TfW'
+    'Transport for Wales' => 'TfW',
+    'West Midlands Trains' => 'WMT',
+    'Virgin Trains' => 'Virgin'
   }.freeze
 
   def initialize(info)
@@ -21,7 +23,7 @@ class Service
     @origin = parse_origin(info)
     @destination = parse_destination(info)
     @estimated = parse_estimated(info)
-    @platform = info[:platform] || 'N/S'
+    @platform = info[:platform] || '--'
     @operator = OPERATORS_MAPPING[info[:operator]] || info[:operator]
     @transport_method = info[:service_type]
   end
